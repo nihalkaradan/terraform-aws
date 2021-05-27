@@ -9,3 +9,10 @@ resource "aws_s3_bucket" "mybucket"{
     Environment = "Dev"
 }	
 }
+
+resource "aws_s3_bucket_object" "myfirstobject" {
+  bucket = "${aws_s3_bucket.mybucket.id}"
+  key    = "test.txt"
+  source = "../test.txt"
+  etag = filemd5("../test.txt")
+}

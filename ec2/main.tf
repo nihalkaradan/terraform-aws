@@ -27,8 +27,9 @@ resource "aws_instance" "ec2_terraform" {
     ami = "${var.amiid}"
     instance_type = "t2.micro"
     key_name = "terraform"
-    security_groups = ["${aws_security_group.terraform_ec2_sg.id}"]
+    security_groups = ["${aws_security_group.terraform_ec2_sg.name}"]
+    #  = ["${aws_security_group.terraform_ec2_sg.id}"]
     tags = {
-      "Name" = "Terraform ec2 instance"
+      Name = "Terraform ec2 instance"
     }
 }

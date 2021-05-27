@@ -29,5 +29,20 @@ variable "sg" {
   ]
 }
 output "sgoutput" {
-  value = "${var.sg[0]}"
+  value = "${var.sg}"
+}
+//boolean
+variable "testbool" {
+  default = true
+}
+output "testbool" {
+  value = "${var.testbool}"
+}
+//input from console
+variable "testInput" {
+  type = string
+}
+output "testInput" {
+  sensitive = true
+  value = "${var.testInput}"
 }
